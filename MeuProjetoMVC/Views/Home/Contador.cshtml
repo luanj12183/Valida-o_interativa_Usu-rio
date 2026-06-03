@@ -1,25 +1,18 @@
 @{
     Layout = null;
-    ViewData["Title"] = "Contador Interativo";
+    ViewData["Title"] = "Contador Interativo....";
 }
 
 <style>
+    /* Zera qualquer margem ou padding do HTML pai */
     html, body {
         margin: 0 !important;
         padding: 0 !important;
-        width: 100% !important;
-        height: 100vh !important;
         background-color: #f4f7f6 !important;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        display: table !important;
     }
 
-    .celula-centro {
-        display: table-cell !important;
-        vertical-align: middle !important;
-        text-align: center !important;
-    }
-
+    /* MENU LATERAL FIXO */
     .abas-navegacao {
         display: flex !important;
         flex-direction: column !important;
@@ -27,7 +20,7 @@
         position: fixed !important;
         top: 40px !important;
         left: 40px !important;
-        z-index: 9999 !important;
+        z-index: 99999 !important;
     }
 
     .abas-navegacao a {
@@ -51,12 +44,25 @@
         color: #007bff;
     }
 
+    /* CAIXA INDEPENDENTE FIXADA NO CENTRO ABSOLUTO DA TELA */
+    .caixa-centro-absoluto {
+        position: fixed !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important; /* Move o bloco exatamente para o centro */
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+        z-index: 88888 !important;
+    }
+
     #txtContador { 
         font-size: 96px !important; 
         font-weight: bold !important; 
-        margin: 0 auto 20px auto !important;
+        margin: 0 0 20px 0 !important;
         line-height: 1 !important;
-        display: inline-block !important;
     }
 
     .num-neutro { color: #333333 !important; }   
@@ -66,7 +72,6 @@
     .grupo-botoes {
         display: flex !important;
         gap: 10px !important;
-        justify-content: center !important;
     }
 
     .btn-contador {
@@ -89,10 +94,10 @@
 
 <div class="abas-navegacao">
     <a href="/">📄 Cadastro</a>
-    <a href="/Home/Contador" class="ativa">🔢 Conta</a>
+    <a href="/Home/Contador" class="ativa">🔢 Contador</a>
 </div>
 
-<div class="celula-centro">
+<div class="caixa-centro-absoluto">
     <div id="txtContador" class="num-neutro">0</div>
 
     <div class="grupo-botoes">
