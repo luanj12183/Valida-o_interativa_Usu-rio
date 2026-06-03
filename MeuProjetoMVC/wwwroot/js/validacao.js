@@ -7,23 +7,23 @@ formulario.addEventListener("submit", function(event) {
     const idade = document.getElementById("idade").value;
 
     ElementoErro.textContent = "";
-    let erros = [];
+    let mensagemErro = "";
 
-    if (nome === "") {
-        erros.push("O campo Nome não pode estar vazio");
+    if (nome.value.trim() === "") {
+        mensagemErro += "• O campo Nome não pode estar vazio.\n";
     }
 
-    if (!email.includes("@")) {
-        erros.push("O Email deve conter o caractere '@'");
+    if (!email.value.includes("@")) {
+        mensagemErro += "• O Email deve conter o caractere '@'.\n";
     }
 
-    if (idade === "" || Number(idade) <= 0) {
-        erros.push("A (idade) precisa ser maior que 0 !");
+    if (idade.value <= 0 || idade.value === "") {
+        mensagemErro += "• A (idade) precisa ser maior que 0.\n";
     }
 
-    if (erros.length > 0) {
+    if (mensagemErro !== "") {
         event.preventDefault();
-        ElementoErro. textContent = erros.join(" , ");
+        ElementoErro. textContent = mensagemErro;
     } else {
         alert("Formulário validado com sucesso ! Enviando para o servidor...");
     }
