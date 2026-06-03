@@ -4,26 +4,15 @@
 }
 
 <style>
-    /* 1. RESET TOTAL DA TELA PARA EVITAR HERANÇAS DO ASP.NET */
-    html, body {
-        margin: 0 !important;
-        padding: 0 !important;
-        width: 100% !important;
-        height: 100vh !important;
-        background-color: #f4f7f6 !important;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        overflow: hidden !important; /* Evita que barras de rolagem empurrem o conteúdo */
-    }
-
-    /* 2. MENU LATERAL ESQUERDO (Ancorado sem interferir em nada) */
+    /* 1. SEPARA O MENU LATERAL DO RESTO DO MUNDO */
     .abas-navegacao {
         display: flex !important;
         flex-direction: column !important;
         gap: 8px !important;
-        position: fixed !important; /* FIXED garante que ele ignore o resto da página */
+        position: fixed !important;
         top: 40px !important;
         left: 40px !important;
-        z-index: 9999 !important;
+        z-index: 99999 !important;
     }
 
     .abas-navegacao a {
@@ -47,62 +36,62 @@
         color: #007bff;
     }
 
-    /* 3. CORES DO NÚMERO */
-    .num-neutro { color: #333333; }   
-    .num-positivo { color: #28a745; } 
-    .num-negativo { color: #dc3545; } 
+    /* 2. CLASSES DE CORES DO NÚMERO */
+    .num-neutro { color: #333333 !important; }   
+    .num-positivo { color: #28a745 !important; } 
+    .num-negativo { color: #dc3545 !important; } 
 
-    /* 4. OS BOTÕES DO SEU PRINT */
+    /* 3. BOTÕES DO SEU PRINT */
     .grupo-botoes {
         display: flex !important;
         gap: 10px !important;
+        margin-top: 20px !important;
     }
 
     .btn-contador {
-        padding: 10px 20px;
-        color: white;
-        border: none;
-        border-radius: 4px;
-        font-weight: 500;
-        font-size: 16px;
-        cursor: pointer;
+        padding: 10px 20px !important;
+        color: white !important;
+        border: none !important;
+        border-radius: 4px !important;
+        font-weight: 500 !important;
+        font-size: 16px !important;
+        cursor: pointer !important;
         transition: background-color 0.2s;
     }
 
-    .btn-azul { background-color: #007bff; }
-    .btn-azul:hover { background-color: #0069d9; }
+    .btn-azul { background-color: #007bff !important; }
+    .btn-azul:hover { background-color: #0069d9 !important; }
 
-    .btn-cinza { background-color: #6c757d; }
-    .btn-cinza:hover { background-color: #5a6268; }
+    .btn-cinza { background-color: #6c757d !important; }
+    .btn-cinza:hover { background-color: #5a6268 !important; }
 
-    /* 5. A CAIXA QUE SOBERANA QUE COMANDA O CENTRO DO MONITOR */
-    .tela-inteira-centro {
+    /* 4. A REDOMA QUE ARRASA QUALQUER BLOQUEIO DO ASP.NET */
+    .bloco-central-absoluto {
         position: fixed !important;
+        /* Define as bordas grudadas nos limites do monitor */
         top: 0 !important;
         left: 0 !important;
-        width: 100vw !important;
-        height: 100vh !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        /* Ignora margens externas */
+        margin: auto !important; 
+        /* Cria o tamanho perfeito do seu print no centro */
+        width: 400px !important;
+        height: 250px !important;
+        
+        /* Centraliza o número e os botões internamente */
         display: flex !important;
         flex-direction: column !important;
-        justify-content: center !important; /* Centro vertical */
-        align-items: center !important;     /* Centro horizontal */
-        z-index: 100 !important;
-        pointer-events: none; /* Deixa cliques passarem se necessário */
-    }
-
-    /* Elementos dentro do centro voltam a aceitar cliques */
-    .tela-inteira-centro #txtContador, 
-    .tela-inteira-centro .grupo-botoes {
-        pointer-events: auto;
+        justify-content: center !important;
+        align-items: center !important;
+        z-index: 88888 !important;
     }
 
     #txtContador { 
-        font-size: 96px; 
-        font-weight: bold; 
-        margin-bottom: 30px; 
-        margin-top: 0;
-        transition: color 0.3s ease;
-        line-height: 1;
+        font-size: 96px !important; 
+        font-weight: bold !important; 
+        margin: 0 !important;
+        line-height: 1 !important;
     }
 </style>
 
@@ -111,7 +100,7 @@
     <a href="/Home/Contador" class="ativa">🔢 Contador</a>
 </div>
 
-<div class="tela-inteira-centro">
+<div class="bloco-central-absoluto">
     <div id="txtContador" class="num-neutro">0</div>
 
     <div class="grupo-botoes">
