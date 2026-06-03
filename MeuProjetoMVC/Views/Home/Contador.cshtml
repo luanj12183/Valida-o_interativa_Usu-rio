@@ -8,11 +8,8 @@
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         background-color: #f4f7f6;
         margin: 0;
-        min-height: 100vh; 
-        display: flex;
-        flex-direction: column;
-        justify-content: center; 
-        align-items: center;     
+        padding: 0;
+        min-height: 100vh;
         position: relative; 
         box-sizing: border-box;
     }
@@ -24,6 +21,7 @@
         position: absolute;
         top: 40px;
         left: 40px;
+        z-index: 10; 
     }
 
     .abas-navegacao a {
@@ -47,13 +45,24 @@
         color: #007bff;
     }
 
+    .centro-tela {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%); 
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
     #txtContador { 
         font-size: 96px; 
         font-weight: bold; 
-        margin-bottom: 20px; 
-        margin-top: 0;     
+        margin-bottom: 30px; 
+        margin-top: 0;
         transition: color 0.3s ease;
-        line-height: 1;    
+        line-height: 1;
     }
 
     .num-neutro { color: #333333; }   
@@ -88,12 +97,14 @@
     <a href="/Home/Contador" class="ativa">🔢 Contador</a>
 </div>
 
-<div id="txtContador" class="num-neutro">0</div>
+<div class="centro-tela">
+    <div id="txtContador" class="num-neutro">0</div>
 
-<div class="grupo-botoes">
-    <button class="btn-contador btn-azul" id="btnSomar">Incrementar</button>
-    <button class="btn-contador btn-azul" id="btnDiminuir">Decrementar</button>
-    <button class="btn-contador btn-cinza" id="btnZerar">Zerar</button>
+    <div class="grupo-botoes">
+        <button class="btn-contador btn-azul" id="btnSomar">Incrementar</button>
+        <button class="btn-contador btn-azul" id="btnDiminuir">Decrementar</button>
+        <button class="btn-contador btn-cinza" id="btnZerar">Zerar</button>
+    </div>
 </div>
 
 <script>
