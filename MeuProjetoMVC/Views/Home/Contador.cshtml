@@ -9,7 +9,6 @@
     <meta charset="UTF-8">
     <title>@ViewData["Title"]</title>
     <style>
-        /* Limpa absolutamente tudo ao redor */
         html, body {
             margin: 0 !important;
             padding: 0 !important;
@@ -20,7 +19,7 @@
             overflow: hidden !important;
         }
 
-        /* O MENU LATERAL FLUTUANTE */
+        /* MENU LATERAL */
         .abas-navegacao {
             display: flex !important;
             flex-direction: column !important;
@@ -52,15 +51,18 @@
             color: #007bff;
         }
 
-        /* CONTAINER MASTER QUE OCUPA A TELA TODA E CENTRALIZA */
+        /* CONTROLE DE ALTURA REGULÁVEL */
         .palco-principal {
-            width: 100vw !important;
-            height: 100vh !important;
+            position: fixed !important;
+            /* Se achar que o número ainda está baixo, diminua esse número de 30% para 25% ou 20% */
+            top: 30% !important; 
+            left: 50% !important;
+            transform: translateX(-50%) !important; /* Centraliza na horizontal perfeitamente */
             display: flex !important;
             flex-direction: column !important;
-            justify-content: center !important; /* Centro Vertical */
-            align-items: center !important;     /* Centro Horizontal */
+            align-items: center !important;
             text-align: center !important;
+            z-index: 88888 !important;
         }
 
         /* O NÚMERO GRANDE */
@@ -76,7 +78,7 @@
         .num-positivo { color: #28a745 !important; } 
         .num-negativo { color: #dc3545 !important; } 
 
-        /* OS BOTÕES DO SEU PRINT */
+        /* OS BOTÕES EXATAMENTE IGUAIS AO SEU PRINT */
         .grupo-botoes {
             display: flex !important;
             gap: 10px !important;
@@ -98,13 +100,6 @@
 
         .btn-cinza { background-color: #6c757d !important; }
         .btn-cinza:hover { background-color: #5a6268 !important; }
-        
-        .aviso-teste {
-            font-size: 14px;
-            color: #ff0000;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
     </style>
 </head>
 <body>
@@ -115,8 +110,6 @@
     </div>
 
     <div class="palco-principal">
-        <div class="aviso-teste">TESTE DE ATUALIZAÇÃO</div>
-        
         <div id="txtContador" class="num-neutro">0</div>
 
         <div class="grupo-botoes">
