@@ -10,15 +10,15 @@ formulario.addEventListener("submit", function(event) {
     let erros = [];
 
     if (nome === "") {
-        erros.push("O campo (Nome) não pode estar vazio.");
+        erros.push("O campo Nome não pode estar vazio.");
     }
 
     if (!email.includes("@")) {
-        erros.push("O (Email) deve conter o caractere '@'.");
+        erros.push("O Email deve conter o caractere '@'.");
     }
 
     if (idade === "" || Number(idade) <= 0) {
-        erros.push("A (idade) precisa ser maior que 0 !!!");
+        erros.push("A (idade) precisa ser maior que 0 !");
     }
 
     if (erros.length > 0) {
