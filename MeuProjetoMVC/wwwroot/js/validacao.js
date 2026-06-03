@@ -25,6 +25,6 @@ formulario.addEventListener("submit", function(event) {
         event.preventDefault();
         ElementoErro. textContent = erros.join(" | ");
     } else {
-        alert("Formulário validado com sucesso !!! Enviando para o servidor...");
+        alert("Formulário validado com sucesso ! Enviando para o servidor...");
     }
 });

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador Interativo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+            background-color: #f4f4f9;
+        }
+        #numero {
+            font-size: 80pt;
+            margin: 20px 0;
+            color: #333; 
+            transition: color 0.2s ease; 
+        }
+        button {
+            font-size: 14pt;
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #btnZerar {
+            background-color: #6c757d;
+        }
+        #btnZerar:hover {
+            background-color: #5a6268;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 id="numero">0</h1>
+
+    <button id="btnIncrementar">Incrementar</button>
+    <button id="btnDecrementar">Decrementar</button>
+    <button id="btnZerar">Zerar</button>
+
+    <script>
+        let contador = 0;
+
+        const elementoNumero = document.getElementById("numero");
+        const btnIncrementar = document.getElementById("btnIncrementar");
+        const btnDecrementar = document.getElementById("btnDecrementar");
+        const btnZerar = document.getElementById("btnZerar");
+
+        function atualizarPainel() {
+            elementoNumero.textContent = contador;
+
+            if (contador > 0) {
+                elementoNumero.style.color = "green"; 
+            } else if (contador < 0) {
+                elementoNumero.style.color = "red";    
+            } else {
+                elementoNumero.style.color = "#333";   
+            }
+        }
+
+
+        btnIncrementar.addEventListener("click", function() {
+            contador++;
+            atualizarPainel();
+        });
+
+        btnDecrementar.addEventListener("click", function() {
+            contador--;
+            atualizarPainel();
+        });
+
+        btnZerar.addEventListener("click", function() {
+            contador = 0;
+            atualizarPainel();
+        });
+    </script>
+</body>
+</html>
