@@ -4,7 +4,22 @@
 }
 
 <style>
-    /* 1. SEPARA O MENU LATERAL DO RESTO DO MUNDO */
+    html, body {
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100% !important;
+        height: 100vh !important;
+        background-color: #f4f7f6 !important;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        display: table !important;
+    }
+
+    .celula-centro {
+        display: table-cell !important;
+        vertical-align: middle !important;
+        text-align: center !important;
+    }
+
     .abas-navegacao {
         display: flex !important;
         flex-direction: column !important;
@@ -12,7 +27,7 @@
         position: fixed !important;
         top: 40px !important;
         left: 40px !important;
-        z-index: 99999 !important;
+        z-index: 9999 !important;
     }
 
     .abas-navegacao a {
@@ -36,16 +51,22 @@
         color: #007bff;
     }
 
-    /* 2. CLASSES DE CORES DO NÚMERO */
+    #txtContador { 
+        font-size: 96px !important; 
+        font-weight: bold !important; 
+        margin: 0 auto 20px auto !important;
+        line-height: 1 !important;
+        display: inline-block !important;
+    }
+
     .num-neutro { color: #333333 !important; }   
     .num-positivo { color: #28a745 !important; } 
     .num-negativo { color: #dc3545 !important; } 
 
-    /* 3. BOTÕES DO SEU PRINT */
     .grupo-botoes {
         display: flex !important;
         gap: 10px !important;
-        margin-top: 20px !important;
+        justify-content: center !important;
     }
 
     .btn-contador {
@@ -64,35 +85,6 @@
 
     .btn-cinza { background-color: #6c757d !important; }
     .btn-cinza:hover { background-color: #5a6268 !important; }
-
-    /* 4. A REDOMA QUE ARRASA QUALQUER BLOQUEIO DO ASP.NET */
-    .bloco-central-absoluto {
-        position: fixed !important;
-        /* Define as bordas grudadas nos limites do monitor */
-        top: 0 !important;
-        left: 0 !important;
-        right: 0 !important;
-        bottom: 0 !important;
-        /* Ignora margens externas */
-        margin: auto !important; 
-        /* Cria o tamanho perfeito do seu print no centro */
-        width: 400px !important;
-        height: 250px !important;
-        
-        /* Centraliza o número e os botões internamente */
-        display: flex !important;
-        flex-direction: column !important;
-        justify-content: center !important;
-        align-items: center !important;
-        z-index: 88888 !important;
-    }
-
-    #txtContador { 
-        font-size: 96px !important; 
-        font-weight: bold !important; 
-        margin: 0 !important;
-        line-height: 1 !important;
-    }
 </style>
 
 <div class="abas-navegacao">
@@ -100,7 +92,7 @@
     <a href="/Home/Contador" class="ativa">🔢 Contador</a>
 </div>
 
-<div class="bloco-central-absoluto">
+<div class="celula-centro">
     <div id="txtContador" class="num-neutro">0</div>
 
     <div class="grupo-botoes">
@@ -119,7 +111,6 @@
 
     function atualizarCor() {
         txtContador.classList.remove("num-neutro", "num-positivo", "num-negativo");
-
         if (cliques > 0) {
             txtContador.classList.add("num-positivo");
         } else if (cliques < 0) {
