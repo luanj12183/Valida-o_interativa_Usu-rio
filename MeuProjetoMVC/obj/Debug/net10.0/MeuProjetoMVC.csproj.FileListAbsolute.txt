@@ -97,4 +97,4 @@
 /workspaces/Valida-o_interativa_Usu-rio/MeuProjetoMVC/obj/Debug/net10.0/MeuProjetoMVC.genruntimeconfig.cache
 /workspaces/Valida-o_interativa_Usu-rio/MeuProjetoMVC/obj/Debug/net10.0/ref/MeuProjetoMVC.dll
 /workspaces/Valida-o_interativa_Usu-rio/MeuProjetoMVC/obj/Debug/net10.0/compressed/ubx10xdfdc-{0}-1jwq37cp0z-1jwq37cp0z.gz
-/workspaces/Valida-o_interativa_Usu-rio/MeuProjetoMVC/obj/Debug/net10.0/compressed/p2koj01xpv-{0}-v0z6v0q8w8-v0z6v0q8w8.gz
+/workspaces/Valida-o_interativa_Usu-rio/MeuProjetoMVC/obj/Debug/net10.0/compressed/p2koj01xpv-{0}-9fe5i23qpj-9fe5i23qpj.gz
