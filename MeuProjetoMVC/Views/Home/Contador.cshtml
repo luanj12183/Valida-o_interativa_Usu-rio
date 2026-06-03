@@ -8,11 +8,11 @@
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         background-color: #f4f7f6;
         margin: 0;
-        height: 100vh;
+        min-height: 100vh; 
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        justify-content: center; 
+        align-items: center;     
         position: relative; 
         box-sizing: border-box;
     }
@@ -50,11 +50,13 @@
     #txtContador { 
         font-size: 96px; 
         font-weight: bold; 
-        margin-bottom: 30px; 
+        margin-bottom: 20px; 
+        margin-top: 0;     
         transition: color 0.3s ease;
+        line-height: 1;    
     }
 
-    .num-neutro { color: #333333; }  
+    .num-neutro { color: #333333; }   
     .num-positivo { color: #28a745; } 
     .num-negativo { color: #dc3545; } 
 
