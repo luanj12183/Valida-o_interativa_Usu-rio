@@ -23,7 +23,7 @@ formulario.addEventListener("submit", function(event) {
 
     if (erros.length > 0) {
         event.preventDefault();
-        ElementoErro. textContent = erros.join(" | ");
+        ElementoErro. textContent = erros.join(" , ");
     } else {
         alert("Formulário validado com sucesso ! Enviando para o servidor...");
     }
