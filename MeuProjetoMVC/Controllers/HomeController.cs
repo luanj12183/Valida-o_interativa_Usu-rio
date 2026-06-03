@@ -18,6 +18,11 @@ public class HomeController : Controller
         return View();
     }
 
+    public IActionResult Contador()
+{
+    return View();
+}
+
     [HttpPost]
     public IActionResult Cadastrar(UsuarioViewModel model)
     {

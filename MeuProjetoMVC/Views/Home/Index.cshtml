@@ -12,11 +12,45 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        position: relative; 
+        min-height: 100vh;
+        box-sizing: border-box;
     }
 
-    h2 {
-        color: #333;
-        margin-bottom: 20px;
+    .abas-navegacao {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        position: absolute;
+        top: 40px;
+        left: 40px;
+    }
+
+    .abas-navegacao a {
+    text-decoration: none;
+    color: #777;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    text-align: left;    
+    }
+
+    .abas-navegacao a.ativa {
+    background-color: #e0e5e4;
+    color: #333;
+    }
+
+    .abas-navegacao a:hover:not(.ativa) {
+    background-color: #eaeaea;
+    color: #007bff;
+    }
+
+     h2 {
+    color: #333;
+    margin-bottom: 20px;
+    margin-top: 40px;
     }
 
     form {
@@ -84,11 +118,14 @@
         font-weight: bold;
         margin-top: 15px;
         text-align: center;
-    
-
         white-space: pre-line;
-}
+    }
 </style>
+
+<div class="abas-navegacao">
+    <a href="/" class="ativa">📄 Cadastro</a>
+    <a href="/Home/Contador">🔢 Contador</a>
+</div>
 
 <h2>Cadastro de Usuário</h2>
 

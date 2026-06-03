@@ -1,0 +1,111 @@
+@{
+    Layout = null;
+    ViewData["Title"] = "Contador de Cliques";
+}
+
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f4f7f6;
+        margin: 0;
+        padding: 50px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative; 
+        min-height: 100vh;
+        box-sizing: border-box;
+    }
+
+    .abas-navegacao {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        position: absolute;
+        top: 40px;
+        left: 40px;
+    }
+
+    .abas-navegacao a {
+        text-decoration: none;
+        color: #777;
+        font-size: 14px;
+        font-weight: 600;
+        padding: 8px 16px;
+        border-radius: 6px;
+        transition: all 0.2s ease;
+        text-align: left;    
+    }
+
+    .abas-navegacao a.ativa {
+        background-color: #e0e5e4;
+        color: #333;
+    }
+
+    .abas-navegacao a:hover:not(.ativa) {
+        background-color: #eaeaea;
+        color: #007bff;
+    }
+
+    h2 {
+        color: #333;
+        margin-bottom: 20px;
+        margin-top: 40px;
+    }
+
+    .container-contador {
+        background: #ffffff;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 350px;
+        text-align: center;
+    }
+
+    #txtContador { 
+        font-size: 54px; 
+        font-weight: bold; 
+        margin-bottom: 25px; 
+        color: #333; 
+    }
+
+    .btn-contador {
+        width: 100%;
+        padding: 12px;
+        background-color: #28a745;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        font-weight: bold;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+    }
+    .btn-contador:hover { 
+        background-color: #218838; 
+    }
+</style>
+
+<div class="abas-navegacao">
+    <a href="/">📄 Cadastro</a>
+    <a href="/Home/Contador" class="ativa">🔢 Contador</a>
+</div>
+
+<h2>Contador Interativo</h2>
+
+<div class="container-contador">
+    <div id="txtContador">0</div>
+    <button class="btn-contador" id="btnContar">Contar!</button>
+</div>
+
+<script>
+    let cliques = 0;
+    const txtContador = document.getElementById("txtContador");
+    const btnContar = document.getElementById("btnContar");
+
+    btnContar.addEventListener("click", function() {
+        cliques++;
+        txtContador.textContent = cliques;
+    });
+</script>
