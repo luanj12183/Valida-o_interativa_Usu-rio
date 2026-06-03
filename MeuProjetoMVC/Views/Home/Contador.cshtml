@@ -1,6 +1,6 @@
 @{
     Layout = null;
-    ViewData["Title"] = "Contador de Cliques";
+    ViewData["Title"] = "Contador Interativo";
 }
 
 <style>
@@ -8,12 +8,12 @@
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         background-color: #f4f7f6;
         margin: 0;
-        padding: 50px;
+        height: 100vh;
         display: flex;
         flex-direction: column;
+        justify-content: center;
         align-items: center;
         position: relative; 
-        min-height: 100vh;
         box-sizing: border-box;
     }
 
@@ -47,44 +47,38 @@
         color: #007bff;
     }
 
-    h2 {
-        color: #333;
-        margin-bottom: 20px;
-        margin-top: 40px;
-    }
-
-    .container-contador {
-        background: #ffffff;
-        padding: 30px;
-        border-radius: 8px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        width: 100%;
-        max-width: 350px;
-        text-align: center;
-    }
-
     #txtContador { 
-        font-size: 54px; 
+        font-size: 96px; 
         font-weight: bold; 
-        margin-bottom: 25px; 
-        color: #333; 
+        margin-bottom: 30px; 
+        transition: color 0.3s ease;
+    }
+
+    .num-neutro { color: #333333; }  
+    .num-positivo { color: #28a745; } 
+    .num-negativo { color: #dc3545; } 
+
+    .grupo-botoes {
+        display: flex;
+        gap: 10px;
     }
 
     .btn-contador {
-        width: 100%;
-        padding: 12px;
-        background-color: #28a745;
+        padding: 10px 20px;
         color: white;
         border: none;
         border-radius: 4px;
-        font-weight: bold;
+        font-weight: 500;
         font-size: 16px;
         cursor: pointer;
-        transition: background-color 0.2s ease;
+        transition: background-color 0.2s;
     }
-    .btn-contador:hover { 
-        background-color: #218838; 
-    }
+
+    .btn-azul { background-color: #007bff; }
+    .btn-azul:hover { background-color: #0069d9; }
+
+    .btn-cinza { background-color: #6c757d; }
+    .btn-cinza:hover { background-color: #5a6268; }
 </style>
 
 <div class="abas-navegacao">
@@ -92,20 +86,48 @@
     <a href="/Home/Contador" class="ativa">🔢 Contador</a>
 </div>
 
-<h2>Contador Interativo</h2>
+<div id="txtContador" class="num-neutro">0</div>
 
-<div class="container-contador">
-    <div id="txtContador">0</div>
-    <button class="btn-contador" id="btnContar">Contar!</button>
+<div class="grupo-botoes">
+    <button class="btn-contador btn-azul" id="btnSomar">Incrementar</button>
+    <button class="btn-contador btn-azul" id="btnDiminuir">Decrementar</button>
+    <button class="btn-contador btn-cinza" id="btnZerar">Zerar</button>
 </div>
 
 <script>
     let cliques = 0;
     const txtContador = document.getElementById("txtContador");
-    const btnContar = document.getElementById("btnContar");
+    const btnSomar = document.getElementById("btnSomar");
+    const btnDiminuir = document.getElementById("btnDiminuir");
+    const btnZerar = document.getElementById("btnZerar");
 
-    btnContar.addEventListener("click", function() {
+    function atualizarCor() {
+        txtContador.classList.remove("num-neutro", "num-positivo", "num-negativo");
+
+        if (cliques > 0) {
+            txtContador.classList.add("num-positivo");
+        } else if (cliques < 0) {
+            txtContador.classList.add("num-negativo");
+        } else {
+            txtContador.classList.add("num-neutro");
+        }
+    }
+
+    btnSomar.addEventListener("click", function() {
         cliques++;
         txtContador.textContent = cliques;
+        atualizarCor();
+    });
+
+    btnDiminuir.addEventListener("click", function() {
+        cliques--;
+        txtContador.textContent = cliques;
+        atualizarCor();
+    });
+
+    btnZerar.addEventListener("click", function() {
+        cliques = 0;
+        txtContador.textContent = cliques;
+        atualizarCor();
     });
 </script>
